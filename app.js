@@ -6,7 +6,7 @@ const app = express();
 const connectDB = require('./db/connect');
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
-const morgan = require('morgan'); // This package is used to log info about which route is being used 
+// const morgan = require('morgan'); // This package is used to log info about which route is being used 
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 const rateLimiter = require('express-rate-limit');
@@ -33,7 +33,7 @@ app.use(xss());
 app.use(cors());
 app.use(mongoSanitize());
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
 // used for file processing
@@ -41,10 +41,10 @@ app.use(express.static('./public'));
 app.use(fileUpload());
 // In order to access the Json data in req.body we use express.json() middlewear
 
-app.get('/',(req,res)=>{
-    console.log(req.cookies);
-    res.send(`<h1>Welcome to E-Commerce-API<h1>`);
-})
+// app.get('/',(req,res)=>{
+//     console.log(req.cookies);
+//     res.send(`<h1>Welcome to E-Commerce-API<h1>`);
+// })
 
 // app.get('/cookiedemo',(req,res)=>{
 //     console.log(req.cookies);
